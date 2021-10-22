@@ -2,3 +2,8 @@ body {
     margin: 0px;
     padding: 0px;
 }
+
+@font-face {
+    font-family: goft-bold;
+    src: url("../fonts/GOFT-Bold.otf"); 
+  }

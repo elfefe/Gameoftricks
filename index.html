@@ -6,9 +6,48 @@
         <link rel="stylesheet" href="css/style.css">
         <link rel="stylesheet" href="css/background.css">
     </head>
-    <body>
+    <body> 
+        <audio id="buttonAudio">
+            <source src="media/audio/button-sound.mp3" type="audio/mp3">
+            <source src="media/audio/button-sound.wav" type="audio/wav">
+            Your browser does not support the audio element.
+        </audio>
         <div id="backgroundHolder">
-            <img src="" alt="background"/>
+            <div id="columnButton">
+                <img class="column" id="gauche" src="media/colonnes/colonnegauche.png" alt="colonne">
+                <div id="buttons">
+                    <div class="buttonHolder" id="infos">
+                        <a class="button">INFOS</a>
+                    </div>
+                    <div class="buttonHolder" id="studio">
+                        <a class="button">STUDIO<br/>GOFT</a>
+                    </div>
+                    <div class="buttonHolder" id="game">
+                        <a class="button">GAME</a>
+                    </div>
+                    <div class="buttonHolder" id="artistes">
+                        <a class="button">ARTISTES</a>
+                    </div>
+                </div>
+            </div>
+            <img class="column" id="droite" src="media/colonnes/colonnedroite.png" alt="colonne"/>
         </div>
     </body>
+    <script>
+        const buttons = Array.from(document.getElementsByClassName('buttonHolder'));
+        const buttonSound = document.getElementById('buttonAudio');
+        buttonSound.muted = true;
+        buttons.forEach((button, index) => {
+            const child = button.children[0];
+            button.onmouseover = () => {
+                button.style.cursor = "pointer";
+                child.style.color = "orange";
+                // buttonSound.load();
+                // buttonSound.play();
+            };
+            button.onmouseout = () => {
+                child.style.color = "black";
+            };
+        });
+    </script>
 </html>

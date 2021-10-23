@@ -3,8 +3,13 @@
     <head>
         <title>Gameoftricks</title>
         <meta charset="utf-8"/>
+
         <link rel="stylesheet" href="css/style.css">
         <link rel="stylesheet" href="css/background.css">
+        <link rel="stylesheet" href="css/content.css">
+
+        <script type="text/javascript" src="column.js" ></script>
+        <script type="text/javascript" src="animate.js" ></script>
     </head>
     <body> 
         <audio id="buttonAudio">
@@ -32,22 +37,26 @@
             </div>
             <img class="column" id="droite" src="media/colonnes/colonnedroite.png" alt="colonne"/>
         </div>
+        <div id="contentHolder">
+            <img id="boule" src="media/boule.png" alt="boule" sizeration="1.5" speed="0.05" />
+        </div>
     </body>
     <script>
-        const buttons = Array.from(document.getElementsByClassName('buttonHolder'));
-        const buttonSound = document.getElementById('buttonAudio');
-        buttonSound.muted = true;
-        buttons.forEach((button, index) => {
-            const child = button.children[0];
-            button.onmouseover = () => {
-                button.style.cursor = "pointer";
-                child.style.color = "orange";
-                // buttonSound.load();
-                // buttonSound.play();
+        const interaction = () => {
+            const minSize = 10;
+            const maxSize = 15;
+            const speed = 0.05;
+
+            const ball = document.getElementById('boule');
+
+            ball.onmouseover = () => {
+                ball.style.cursor = "pointer";
+                animate(ball, minSize, maxSize, speed);
             };
-            button.onmouseout = () => {
-                child.style.color = "black";
+            ball.onmouseout = () => {
+                animate(ball, maxSize, minSize, speed);
             };
-        });
+        }
+        interaction();
     </script>
 </html>

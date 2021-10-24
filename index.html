@@ -8,8 +8,9 @@
         <link rel="stylesheet" href="css/background.css">
         <link rel="stylesheet" href="css/content.css">
 
-        <script type="text/javascript" src="column.js" ></script>
-        <script type="text/javascript" src="animate.js" ></script>
+        <script type="text/javascript" src="js/utils.js"></script>
+        <script type="text/javascript" src="js/animate.js"></script>
+        <script type="text/javascript" src="js/column.js" ></script>
     </head>
     <body> 
         <audio id="buttonAudio">
@@ -45,18 +46,22 @@
         const interaction = () => {
             const minSize = 10;
             const maxSize = 15;
-            const speed = 0.05;
 
-            const ball = document.getElementById('boule');
+            const ball = byid('boule');
+            const anim = new Animate(ball);
 
             ball.onmouseover = () => {
                 ball.style.cursor = "pointer";
-                animate(ball, minSize, maxSize, speed);
+                anim.movement("width", minSize, maxSize, 1, "%", Animate.EASING.easeOutElastic);
             };
             ball.onmouseout = () => {
-                animate(ball, maxSize, minSize, speed);
+                anim.movement("width", maxSize, minSize, 0.5, "%", Animate.EASING.easeInBack);
             };
         }
         interaction();
+        byclass("buttonHolder").forEach((e) => {
+            console.log(e);
+            column(e);
+        });
     </script>
 </html>

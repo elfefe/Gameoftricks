@@ -40,9 +40,11 @@
     width: 58%;
     height: 33.6%;
     text-align: center;
+    z-index: 100;
 }
 
 .buttonHolder {
+    position: static;
     display: flex;
     align-items: center;
     justify-content: center;

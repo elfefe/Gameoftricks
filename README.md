@@ -1,2 +1,0 @@
-# Gameoftricks
-goft website

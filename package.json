@@ -15,5 +15,8 @@
   "bugs": {
     "url": "https://github.com/elfefe/Gameoftricks/issues"
   },
-  "homepage": "https://github.com/elfefe/Gameoftricks#readme"
+  "homepage": "https://github.com/elfefe/Gameoftricks#readme",
+  "dependencies": {
+    "http-server": "^14.1.1"
+  }
 }
